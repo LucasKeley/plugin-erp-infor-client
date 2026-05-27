@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Tempo de Contrato",
-  "version": "1.3",
+  "version": "1.5",
   "description": "Calcula e exibe o tempo desde a vigência inicial do contrato",
   "permissions": ["activeTab", "scripting"],
   "action": {
