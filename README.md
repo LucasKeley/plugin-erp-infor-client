@@ -1,12 +1,32 @@
 # Tempo de Contrato — Extensão Chrome
 
-Extensão para Google Chrome que calcula e exibe o tempo decorrido desde a vigência inicial de contratos no ERP Infor.
+Extensão para Google Chrome que lê dados de contratos no ERP Infor e gera checklists de encaminhamento para equipes de campo (moto e carro).
 
 ## O que ela faz
 
-- Lê automaticamente a data de **Vigência inicial** ao abrir o modal de um contrato
-- Injeta um **badge visual** diretamente na página com o tempo desde a ativação (anos e meses)
-- Exibe no popup o **número do contrato**, **tipo** e **tempo desde a ativação** ao clicar no botão
+### Badge automático na página
+Ao abrir o modal de um contrato no ERP Infor, a extensão injeta automaticamente um badge visual azul ao lado da data de Vigência inicial exibindo o número do contrato e o tempo desde a ativação (anos e meses).
+
+### Coleta de dados do contrato
+Ao clicar em **Coletar dados da página**, a extensão varre todos os frames da página e extrai:
+
+- Número do contrato
+- Tipo (Residencial / Empresarial)
+- Data de vigência inicial e tempo desde a ativação
+- Usuário PPPoE
+- Plano (MB) — lido de "Descrição Etiqueta:", "Plano:", "Velocidade:" ou "Banda:"
+- Splitter e Porta Splitter
+
+### Geração de checklist de campo
+Com os dados coletados, gera um checklist pronto para copiar e enviar, em dois formatos:
+
+- **Campo Moto** — inclui dBm cliente/CTO, extrato de autenticação, roteador em comodato, agendamento de visita
+- **Campo Carro** — inclui dBm cliente/CTO/OLT, verificação de GPON, coordenadas do cliente e da CTO, confirmação de splitter e porta
+
+Ambos são pré-preenchidos com os dados do contrato (número, PPPoE, plano, tempo de ativação e tipo de cliente).
+
+### Copiar para área de transferência
+Botão **Copiar texto** copia o checklist gerado com um clique.
 
 ## Como instalar (modo desenvolvedor)
 
@@ -23,8 +43,8 @@ Extensão para Google Chrome que calcula e exibe o tempo decorrido desde a vigê
 1. Acesse o ERP Infor e abra o modal de um contrato
 2. Clique no ícone da extensão na barra do Chrome
 3. Clique em **Coletar dados da página**
-
-O popup exibirá o número do contrato, tipo e o tempo desde a ativação. Um badge também é injetado automaticamente na página, ao lado da data de vigência.
+4. Escolha **Campo Moto** ou **Campo Carro** para gerar o checklist
+5. Clique em **Copiar texto** e cole onde precisar
 
 ## Compatibilidade
 
@@ -33,4 +53,4 @@ O popup exibirá o número do contrato, tipo e o tempo desde a ativação. Um ba
 
 ## Versão
 
-`v1.0.0`
+`v1.5`
